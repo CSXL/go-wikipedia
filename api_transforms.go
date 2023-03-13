@@ -1310,11 +1310,10 @@ TransformsApiService Check Wikitext for lint errors
 Parse the supplied wikitext and check it for lint errors.  - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental) - Rate limit: 25 req/s
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param wikitext
-  - @param body
 
 @return interface{}
 */
-func (a *TransformsApiService) TransformWikitextToLintPost(ctx context.Context, wikitext string, body string) (interface{}, *http.Response, error) {
+func (a *TransformsApiService) TransformWikitextToLintPost(ctx context.Context, wikitext string) (interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -1348,7 +1347,7 @@ func (a *TransformsApiService) TransformWikitextToLintPost(ctx context.Context, 
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body
+	localVarPostBody = &wikitext
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -2668,7 +2668,7 @@ paths:
         description: PDF type - `mobile` (optimized for reading on mobile devices)
           or `desktop` (regular PDF). `desktop` is the default render mode and it
           will used if param `type` is not passed
-        required: true
+        required: false
         style: simple
         explode: false
         schema:
